@@ -8,4 +8,14 @@ export default class BookController {
     const books = await appDataSource.manager.find(Book);
     ctx.body = books;
   }
+  public static async getBook(ctx: Context) {
+    const book = await appDataSource.manager.findOneBy(Book, {
+      id: +ctx.params.id,
+    });
+    if (book) {
+      ctx.body = book;
+    } else {
+      ctx.body = "未找到";
+    }
+  }
 }

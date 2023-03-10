@@ -7,9 +7,9 @@ import router from "./src/routes";
 
 const app = new Koa();
 
-appDataSource
-  .initialize()
-  .then(async () => {
+// appDataSource
+//   .initialize()
+//   .then(async () => {
     app.use(cors());
     app.use(bodyParser());
     app.use(async (ctx, next) => {
@@ -29,8 +29,8 @@ appDataSource
     // response
     app.use(router.routes()).use(router.allowedMethods());
 
-    app.listen(3000);
-  })
-  .catch((e) => {
-    console.error("连接数据库失败", e);
-  });
+    app.listen(3333);
+  // })
+  // .catch((e) => {
+  //   console.error("连接数据库失败", e);
+  // });
